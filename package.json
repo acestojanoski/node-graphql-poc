@@ -1,0 +1,62 @@
+{
+	"name": "node-graphql-poc",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"dev": "cross-env POC_ENV=local nodemon --exec babel-node src/server.js",
+		"build:dev": "cross-env POC_ENV=dev webpack",
+		"start": "node dist/api.bundle.js",
+		"xo": "xo",
+		"xo:fix": "xo --fix"
+	},
+	"keywords": [],
+	"author": "Aleksandar Stojanoski",
+	"license": "MIT",
+	"dependencies": {
+		"@babel/runtime": "^7.10.1",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"express-graphql": "^0.9.0",
+		"graphql": "^15.0.0",
+		"husky": "^4.2.5",
+		"jsonwebtoken": "^8.5.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.1",
+		"@babel/node": "^7.10.1",
+		"@babel/plugin-transform-runtime": "^7.10.1",
+		"@babel/preset-env": "^7.10.1",
+		"babel-loader": "^8.1.0",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"nodemon": "^2.0.4",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-node-externals": "^1.7.2",
+		"xo": "^0.30.0"
+	},
+	"xo": {
+		"ignores": [
+			"node_modules/*"
+		],
+		"prettier": true,
+		"rules": {
+			"no-unused-vars": "warn",
+			"import/no-extraneous-dependencies": "off",
+			"unicorn/prevent-abbreviations": "off",
+			"import/namespace": "off",
+			"import/default": "off",
+			"import/extensions": "off",
+			"import/no-self-import": "off",
+			"import/no-duplicates": "off",
+			"import/no-named-as-default-member": "off",
+			"import/no-named-as-default": "off",
+			"import/no-useless-path-segments": "off"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run xo"
+		}
+	}
+}
